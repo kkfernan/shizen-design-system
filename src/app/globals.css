@@ -104,7 +104,7 @@
     --foreground: hsl(155 10% 95%);
 
     --primary: hsl(155 18% 62%);
-    --primary-foreground: hsl(160 15% 8%);
+    --primary-foreground: hsl(0 0% 100%);
 
     --secondary: hsl(155 12% 16%);
     --secondary-foreground: hsl(155 10% 90%);
