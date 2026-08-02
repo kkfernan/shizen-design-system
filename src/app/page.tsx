@@ -65,7 +65,7 @@ export default function Home() {
           <p className="mb-4 text-sm font-medium tracking-widest text-primary uppercase">
             Product Designer
           </p>
-          <h1 className="mb-6 text-4xl font-normal leading-tight tracking-tight text-foreground sm:text-5xl">
+          <h1 className="mb-6 text-4xl font-light leading-tight tracking-tight text-foreground sm:text-5xl">
             Designing products people
             <br />
             <span className="text-primary">actually want to use.</span>
