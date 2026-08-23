@@ -64,6 +64,23 @@
   --tracking-wide: 0.04em;
   --tracking-wider: 0.08em;
   --tracking-widest: 0.12em;
+
+  /* Elevation — use as shadow-elevation-{0..5} */
+  --shadow-elevation-0: var(--elevation-0);
+  --shadow-elevation-1: var(--elevation-1);
+  --shadow-elevation-2: var(--elevation-2);
+  --shadow-elevation-3: var(--elevation-3);
+  --shadow-elevation-4: var(--elevation-4);
+  --shadow-elevation-5: var(--elevation-5);
+
+  /* Tailwind's t-shirt names remapped onto the elevation scale */
+  --shadow-2xs: var(--elevation-1);
+  --shadow-xs: var(--elevation-1);
+  --shadow-sm: var(--elevation-1);
+  --shadow-md: var(--elevation-2);
+  --shadow-lg: var(--elevation-3);
+  --shadow-xl: var(--elevation-4);
+  --shadow-2xl: var(--elevation-5);
 }
 
 @layer base {
@@ -108,6 +125,28 @@
     --ring: hsl(155 18% 45%);
 
     --radius: 0.5rem;
+
+    /* Elevation primitives — tune these two to retune the whole scale */
+    --shadow-color: 60 8% 8%;
+    --shadow-strength: 1;
+
+    /* Elevation scale — 0 flat, 5 highest. Each level = contact + ambient shadow. */
+    --elevation-0: 0 0 #0000;
+    --elevation-1:
+      0 1px 2px -1px hsl(var(--shadow-color) / calc(0.10 * var(--shadow-strength))),
+      0 1px 3px 0 hsl(var(--shadow-color) / calc(0.08 * var(--shadow-strength)));
+    --elevation-2:
+      0 2px 4px -2px hsl(var(--shadow-color) / calc(0.10 * var(--shadow-strength))),
+      0 4px 8px -2px hsl(var(--shadow-color) / calc(0.10 * var(--shadow-strength)));
+    --elevation-3:
+      0 4px 6px -3px hsl(var(--shadow-color) / calc(0.10 * var(--shadow-strength))),
+      0 10px 20px -4px hsl(var(--shadow-color) / calc(0.12 * var(--shadow-strength)));
+    --elevation-4:
+      0 8px 10px -6px hsl(var(--shadow-color) / calc(0.12 * var(--shadow-strength))),
+      0 20px 32px -8px hsl(var(--shadow-color) / calc(0.16 * var(--shadow-strength)));
+    --elevation-5:
+      0 12px 16px -8px hsl(var(--shadow-color) / calc(0.14 * var(--shadow-strength))),
+      0 32px 56px -12px hsl(var(--shadow-color) / calc(0.20 * var(--shadow-strength)));
     --destructive: hsl(0 72% 51%);
     --destructive-foreground: hsl(0 0% 100%);
 
@@ -153,6 +192,30 @@
     --border-strong: hsl(60 12% 90%);
     --input: hsl(60 4% 20%);
     --ring: hsl(155 18% 62%);
+
+    /* Darker, denser shadows so elevation still reads on dark surfaces.
+       The scale is re-declared because a custom property substitutes var()
+       where it is DECLARED — overriding the primitives alone would not
+       reach the :root copies above. */
+    --shadow-color: 60 6% 2%;
+    --shadow-strength: 2.4;
+
+    --elevation-0: 0 0 #0000;
+    --elevation-1:
+      0 1px 2px -1px hsl(var(--shadow-color) / calc(0.10 * var(--shadow-strength))),
+      0 1px 3px 0 hsl(var(--shadow-color) / calc(0.08 * var(--shadow-strength)));
+    --elevation-2:
+      0 2px 4px -2px hsl(var(--shadow-color) / calc(0.10 * var(--shadow-strength))),
+      0 4px 8px -2px hsl(var(--shadow-color) / calc(0.10 * var(--shadow-strength)));
+    --elevation-3:
+      0 4px 6px -3px hsl(var(--shadow-color) / calc(0.10 * var(--shadow-strength))),
+      0 10px 20px -4px hsl(var(--shadow-color) / calc(0.12 * var(--shadow-strength)));
+    --elevation-4:
+      0 8px 10px -6px hsl(var(--shadow-color) / calc(0.12 * var(--shadow-strength))),
+      0 20px 32px -8px hsl(var(--shadow-color) / calc(0.16 * var(--shadow-strength)));
+    --elevation-5:
+      0 12px 16px -8px hsl(var(--shadow-color) / calc(0.14 * var(--shadow-strength))),
+      0 32px 56px -12px hsl(var(--shadow-color) / calc(0.20 * var(--shadow-strength)));
 
     --destructive: hsl(0 62% 40%);
     --destructive-foreground: hsl(0 0% 100%);
