@@ -495,8 +495,12 @@ export default function ComponentsPage() {
 
             <Section id="typography" title="Typography">
               <div className="flex flex-col gap-2">
+                <p className="font-heading text-2xl">Lora — The quick brown fox</p>
+                <p className="font-heading text-2xl italic">Lora Italic — The quick brown fox</p>
                 <p className="font-sans text-2xl">Geist Sans — The quick brown fox</p>
+                <p className="font-sans text-2xl italic">Geist Sans Italic — The quick brown fox</p>
                 <p className="font-mono text-2xl">Geist Mono — The quick brown fox</p>
+                <p className="font-mono text-2xl italic">Geist Mono Italic — The quick brown fox</p>
               </div>
             </Section>
 

@@ -7,6 +7,7 @@ import "./globals.css";
 const lora = Lora({
   variable: "--font-lora",
   subsets: ["latin"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
