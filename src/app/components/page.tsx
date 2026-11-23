@@ -28,6 +28,7 @@ import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { IconBubble } from "@/components/ui/icon-bubble";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Card,
@@ -341,6 +342,7 @@ const NAV_GROUPS: { label: string; items: { id: string; label: string }[] }[] = 
     label: "Data Display",
     items: [
       { id: "badge", label: "Badge" },
+      { id: "icon-bubble", label: "Icon Bubble" },
       { id: "avatar", label: "Avatar" },
       { id: "card", label: "Card" },
       { id: "table", label: "Table" },
@@ -718,6 +720,16 @@ export default function ComponentsPage() {
                 <Badge variant="outline">Outline</Badge>
                 <Badge variant="ghost">Ghost</Badge>
                 <Badge variant="link">Link</Badge>
+              </Row>
+            </Section>
+
+            <Section id="icon-bubble" title="Icon Bubble">
+              <Row>
+                {(["lg", "md", "sm", "xs"] as const).map((size) => (
+                  <IconBubble key={size} size={size}>
+                    <Settings />
+                  </IconBubble>
+                ))}
               </Row>
             </Section>
 
