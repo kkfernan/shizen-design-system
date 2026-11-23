@@ -724,13 +724,15 @@ export default function ComponentsPage() {
             </Section>
 
             <Section id="icon-bubble" title="Icon Bubble">
-              <Row>
-                {(["lg", "md", "sm", "xs"] as const).map((size) => (
-                  <IconBubble key={size} size={size}>
-                    <Settings />
-                  </IconBubble>
-                ))}
-              </Row>
+              {(["square", "circle"] as const).map((shape) => (
+                <Row key={shape}>
+                  {(["lg", "md", "sm", "xs"] as const).map((size) => (
+                    <IconBubble key={size} shape={shape} size={size}>
+                      <Settings />
+                    </IconBubble>
+                  ))}
+                </Row>
+              ))}
             </Section>
 
             <Section id="avatar" title="Avatar">

@@ -4,9 +4,13 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const iconBubbleVariants = cva(
-  "inline-flex shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground [&>svg]:pointer-events-none [&>svg]:shrink-0",
+  "inline-flex shrink-0 items-center justify-center bg-muted text-muted-foreground [&>svg]:pointer-events-none [&>svg]:shrink-0",
   {
     variants: {
+      shape: {
+        square: "rounded-lg",
+        circle: "rounded-4xl",
+      },
       size: {
         xs: "size-6 [&>svg]:size-4",
         sm: "size-7 [&>svg]:size-4",
@@ -15,6 +19,7 @@ const iconBubbleVariants = cva(
       },
     },
     defaultVariants: {
+      shape: "square",
       size: "lg",
     },
   }
@@ -22,14 +27,16 @@ const iconBubbleVariants = cva(
 
 function IconBubble({
   className,
+  shape = "square",
   size = "lg",
   ...props
 }: React.ComponentProps<"span"> & VariantProps<typeof iconBubbleVariants>) {
   return (
     <span
       data-slot="icon-bubble"
+      data-shape={shape}
       data-size={size}
-      className={cn(iconBubbleVariants({ size }), className)}
+      className={cn(iconBubbleVariants({ shape, size }), className)}
       {...props}
     />
   )
